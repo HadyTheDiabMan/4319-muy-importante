@@ -18,7 +18,7 @@ public class Cipher
 		//}
 		// THIS IS NEEDED char letterus= 'a'+((-3%97)+26);
 		
-		Scanner inputFile= new Scanner(new File("shrek")); 
+		Scanner inputFile= new Scanner(new File("gnelf")); 
 		
 		while (inputFile.hasNext())
 
@@ -29,17 +29,50 @@ public class Cipher
 				
 				for(int h=0; h<line.length();h++)
 				{
-					char[h]= line.charAt(h);
+					linechars[h]= line.charAt(h);
 				}
 				
-				for(int i=0; i>line.length();i++)
+				for(int i=0; i<line.length();i++)
 				{
-					char regularchar=line.charAt(i);
-					char encrypt= (char) (regularchar+((-3%line.charAt(i))+26));
-					System.out.println(encrypt);
+					
+					char regularchar=linechars[i];
+					char encrypt= (char) (regularchar+((-3%regularchar)));
+					if(regularchar==97)
+					{
+						encrypt='x';
+					}
+					if(regularchar==98)
+					{
+						encrypt='y';
+					}
+					if(regularchar==99)
+					{
+						encrypt='z';
+					}
+					if(regularchar==65)
+					{
+						encrypt='X';
+					}
+					if(regularchar==66)
+					{
+						encrypt='Y';
+					}
+					if(regularchar==67)
+					{
+						encrypt='Z';
+					}
+					if(encrypt<65)
+					{
+						encrypt=regularchar;
+					}
+					if(encrypt>122 && encrypt<97&&encrypt>90)
+					{
+						encrypt=regularchar;
+					}
+					System.out.print(encrypt);
 				}
-
-				System.out.println(line); 
+				System.out.print("\n");
+				 
 
 				} 
 
