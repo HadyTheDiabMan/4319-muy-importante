@@ -2,12 +2,14 @@ package cip;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Cipher 
 {
 
-	public static void main(String[] args) throws FileNotFoundException 
+	public static void main(String[] args) throws IOException 
 	
 	{
 		//String word= "subscribe to pewdiepie";
@@ -18,10 +20,21 @@ public class Cipher
 		//}
 		// THIS IS NEEDED char letterus= 'a'+((-3%97)+26);
 		
-		Scanner inputFile= new Scanner(new File("gnelf")); 
+		Scanner scan= new Scanner(System.in);
+		
+		System.out.println("Enter a file to encrypt: ");
+		String filed= scan.nextLine();
+		
+		
+		Scanner inputFile= new Scanner(new File(filed)); 
+		
+		String partOfFile= filed.substring(0, filed.length()-4);
+		PrintWriter outputfile= new PrintWriter(partOfFile+"_ENC.txt");
+		
 		
 		while (inputFile.hasNext())
 
+			
 				{ 
 
 				String line = inputFile.nextLine(); 
@@ -69,12 +82,19 @@ public class Cipher
 					{
 						encrypt=regularchar;
 					}
+					
+					
 					System.out.print(encrypt);
 				}
 				System.out.print("\n");
 				 
 
 				} 
+			inputFile.close();
+			
+		
+		
+		System.out.println();
 
 	}
 
