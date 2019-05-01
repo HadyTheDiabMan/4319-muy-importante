@@ -84,18 +84,22 @@ public class Cipher
 					}
 					
 					
-					System.out.print(encrypt);
+					
+					outputfile.print(encrypt);
 				}
-				System.out.print("\n");
+				
+				outputfile.print("\n");
 				 
 
 				} 
 			inputFile.close();
-			
+			outputfile.close();
+		
+		System.out.println("File has been encrypted to "+partOfFile+"_ENC.txt");
 		
 		
-		System.out.println();
 
 	}
 
 }
+
